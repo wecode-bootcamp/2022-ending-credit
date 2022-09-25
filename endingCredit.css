@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css2?family=Poller+One&display=swap");
+body {
+  background-color: black;
+}
+
+.whiteStar {
+  position: absolute;
+  width: 2px;
+  height: 1px;
+  background-color: white;
+}
+
+.yellowStar {
+  position: absolute;
+  width: 2px;
+  height: 1px;
+  background-color: yellow;
+}
+
+.intro {
+  position: absolute;
+  top: 45%;
+  left: 28%;
+  z-index: 1;
+  color: blue;
+  font-size: 4em;
+  animation: intro 6s ease-out 1s;
+  opacity: 0;
+}
+
+@keyframes intro {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  40% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.main {
+  position: absolute;
+  top: 20%;
+  left: 4%;
+  text-align: center;
+  font-family: "Poller One", cursive;
+  font-size: 15em;
+  -webkit-text-fill-color: black;
+  -webkit-text-stroke-color: yellow;
+  -webkit-text-stroke-width: 7px;
+  z-index: 1;
+  animation: main 9s ease-out 9s;
+  opacity: 0;
+}
+
+@keyframes main {
+  0% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  20% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+    font-size: 15em;
+    transform: scale(0.1);
+  }
+}
+
+.content {
+  position: absolute;
+  overflow: hidden;
+  height: 150vh;
+  width: 100vw;
+  bottom: 0;
+  left: 3%;
+  text-align: center;
+  font-weight: bold;
+  transform: perspective(500px) rotateX(25deg);
+  transform-origin: 50% 100%;
+}
+
+.text {
+  position: absolute;
+  top: 0%;
+  animation: scroll 90s linear 19s;
+  opacity: 0;
+}
+
+.text p {
+  color: yellow;
+  text-align: center;
+  letter-spacing: 0.3em;
+}
+
+.sender {
+  font-size: 10em;
+}
+
+.episode {
+  font-size: 7em;
+}
+
+.reciever {
+  font-size: 6em;
+}
+
+.thanks {
+  font-size: 4em;
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 1;
+    top: 100%;
+  }
+  100% {
+    opacity: 0;
+    top: -200%;
+  }
+}
+
+@media all and (min-width: 350px) and (max-width: 860px) {
+  .intro {
+    left: 5%;
+    font-size: 2em;
+    opacity: 0;
+  }
+
+  .main {
+    top: 40%;
+    left: 2%;
+    font-size: 4em;
+    -webkit-text-stroke-width: 3px;
+    animation: main 9s ease-out 9s;
+    opacity: 0;
+  }
+
+  @keyframes main {
+    0% {
+      opacity: 1;
+      transform: scale(1.8);
+    }
+    20% {
+      opacity: 1;
+    }
+
+    70% {
+      opacity: 0.7;
+    }
+    100% {
+      opacity: 0;
+      font-size: 4em;
+      transform: scale(0.1);
+    }
+  }
+
+  .text p {
+    font-size: 2.5em;
+  }
+}
