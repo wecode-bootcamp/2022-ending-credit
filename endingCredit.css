@@ -18,13 +18,12 @@ body {
 }
 
 .intro {
-  position: absolute;
-  top: 45%;
-  left: 28%;
-  z-index: 1;
+  width: 60%;
+  text-align: center;
+  margin: 25% auto;
   color: blue;
   font-size: 4em;
-  animation: intro 6s ease-out 1s;
+  animation: intro 4s ease-out 1s;
   opacity: 0;
 }
 
@@ -52,12 +51,12 @@ body {
   left: 4%;
   text-align: center;
   font-family: "Poller One", cursive;
-  font-size: 15em;
+  font-size: 18em;
   -webkit-text-fill-color: black;
   -webkit-text-stroke-color: yellow;
   -webkit-text-stroke-width: 7px;
   z-index: 1;
-  animation: main 9s ease-out 9s;
+  animation: main 8s ease-out 8s;
   opacity: 0;
 }
 
@@ -75,18 +74,18 @@ body {
   }
   100% {
     opacity: 0;
-    font-size: 15em;
+    font-size: 18em;
     transform: scale(0.1);
   }
 }
 
 .content {
   position: absolute;
-  overflow: hidden;
-  height: 150vh;
-  width: 100vw;
   bottom: 0;
-  left: 3%;
+  left: 20%;
+  width: 60vw;
+  height: 200vh;
+  overflow: hidden;
   text-align: center;
   font-weight: bold;
   transform: perspective(500px) rotateX(25deg);
@@ -94,10 +93,10 @@ body {
 }
 
 .text {
-  position: absolute;
-  top: 0%;
-  animation: scroll 90s linear 19s;
+  animation: scroll 60s linear 14s;
   opacity: 0;
+  position: absolute;
+  bottom: 0;
 }
 
 .text p {
@@ -114,7 +113,7 @@ body {
   font-size: 7em;
 }
 
-.reciever {
+.receiver {
   font-size: 6em;
 }
 
