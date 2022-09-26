@@ -23,27 +23,24 @@ function getStarPosition() {
 
   return { x: randomX, y: randowY };
 }
+
 window.speechSynthesis.cancel();
-if (
-  typeof SpeechSynthesisUtterance === "undefined" ||
-  typeof window.speechSynthesis === "undefined"
-) {
-  alert("이 브라우저는 음성 합성을 지원하지 않습니다.");
-}
+window.speechSynthesis.addEventListener("voiceschanged", () => {});
 
 function textToSpeech() {
   const text = document.getElementsByClassName("thanks")[0].innerText;
-  console.log(text);
-  console.log("hi");
-  const speechMsg = new SpeechSynthesisUtterance();
-  speechMsg.rate = 1;
-  speechMsg.pitch = 1;
-  speechMsg.text = text;
-  console.log(speechMsg.text);
+  const speechMsg = new SpeechSynthesisUtterance(text);
+
   window.speechSynthesis.speak(speechMsg);
-  console.log("?");
 }
-setTimeout(textToSpeech, 1000);
+
+setTimeout(() => {
+  textToSpeech();
+}, 3000);
+const body = document.getElementsByTagName("body")[0];
+body.addEventListener("click", () => {
+  textToSpeech();
+});
 
 const play = document.getElementsByClassName("audio")[0];
 // setTimeout(() => play.play(), 1000);
