@@ -23,26 +23,27 @@ function getStarPosition() {
 
   return { x: randomX, y: randowY };
 }
+window.speechSynthesis.cancel();
+if (
+  typeof SpeechSynthesisUtterance === "undefined" ||
+  typeof window.speechSynthesis === "undefined"
+) {
+  alert("이 브라우저는 음성 합성을 지원하지 않습니다.");
+}
 
 function textToSpeech() {
-  if (
-    typeof SpeechSynthesisUtterance === "undefined" ||
-    typeof window.speechSynthesis === "undefined"
-  ) {
-    alert("이 브라우저는 음성 합성을 지원하지 않습니다.");
-    return;
-  }
-  window.speechSynthesis.cancel();
-
   const text = document.getElementsByClassName("thanks")[0].innerText;
+  console.log(text);
+  console.log("hi");
   const speechMsg = new SpeechSynthesisUtterance();
   speechMsg.rate = 1;
   speechMsg.pitch = 1;
   speechMsg.text = text;
-
+  console.log(speechMsg.text);
   window.speechSynthesis.speak(speechMsg);
+  console.log("?");
 }
-setTimeout(textToSpeech, 18000);
+setTimeout(textToSpeech, 1000);
 
 const play = document.getElementsByClassName("audio")[0];
 // setTimeout(() => play.play(), 1000);
