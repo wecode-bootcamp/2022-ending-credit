@@ -24,8 +24,13 @@ function getStarPosition() {
   return { x: randomX, y: randowY };
 }
 
-//메시지를 읽는 기능입니다.
+//배경음악 재생 기능
+const soundTrack = new Audio("theme.mp3");
+setTimeout(() => {
+  soundTrack.play();
+}, 1000);
 
+//콘텐츠 읽어주는 기능
 window.speechSynthesis.cancel();
 
 let isSpeaking = false;

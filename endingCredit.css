@@ -61,16 +61,14 @@ body {
 }
 
 .main {
-  position: absolute;
-  top: 20%;
-  left: 4%;
+  width: 80%;
+  margin: -2em auto;
   text-align: center;
   font-family: "Poller One", cursive;
-  font-size: 18em;
+  font-size: 14em;
   -webkit-text-fill-color: black;
   -webkit-text-stroke-color: yellow;
   -webkit-text-stroke-width: 7px;
-  z-index: 1;
   animation: main 8s ease-out 8s;
   opacity: 0;
 }
@@ -89,7 +87,6 @@ body {
   }
   100% {
     opacity: 0;
-    font-size: 18em;
     transform: scale(0.1);
   }
 }
@@ -149,13 +146,16 @@ body {
 
 @media all and (min-width: 350px) and (max-width: 860px) {
   .intro {
-    left: 5%;
+    position: absolute;
+    top: 35%;
+    left: 20%;
     font-size: 2em;
     opacity: 0;
   }
 
   .main {
-    top: 40%;
+    position: absolute;
+    top: 25%;
     left: 2%;
     font-size: 4em;
     -webkit-text-stroke-width: 3px;
