@@ -17,10 +17,25 @@ body {
   background-color: yellow;
 }
 
+.logo {
+  width: 20em;
+  margin-top: 1em;
+  opacity: 80%;
+  cursor: pointer;
+}
+
+.mouth {
+  position: absolute;
+  bottom: 0;
+  width: 5em;
+  right: 3em;
+  cursor: pointer;
+}
+
 .intro {
   width: 60%;
   text-align: center;
-  margin: 25% auto;
+  margin: 15% auto;
   color: blue;
   font-size: 4em;
   animation: intro 4s ease-out 1s;

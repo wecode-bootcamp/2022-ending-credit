@@ -24,23 +24,28 @@ function getStarPosition() {
   return { x: randomX, y: randowY };
 }
 
-window.speechSynthesis.cancel();
-window.speechSynthesis.addEventListener("voiceschanged", () => {});
+//메시지를 읽는 기능입니다.
 
+window.speechSynthesis.cancel();
+
+let isSpeaking = false;
 function textToSpeech() {
+  isSpeaking = !isSpeaking;
   const text = document.getElementsByClassName("thanks")[0].innerText;
   const speechMsg = new SpeechSynthesisUtterance(text);
-
-  window.speechSynthesis.speak(speechMsg);
+  if (isSpeaking) {
+    window.speechSynthesis.speak(speechMsg);
+  } else {
+    window.speechSynthesis.cancel();
+  }
 }
 
-setTimeout(() => {
-  textToSpeech();
-}, 3000);
-const body = document.getElementsByTagName("body")[0];
-body.addEventListener("click", () => {
+const mouth = document.getElementsByClassName("mouth")[0];
+mouth.addEventListener("click", () => {
   textToSpeech();
 });
 
-const play = document.getElementsByClassName("audio")[0];
-// setTimeout(() => play.play(), 1000);
+const logo = document.getElementsByClassName("logo")[0];
+logo.addEventListener("click", () => {
+  window.open("https://wecode.co.kr/");
+});
