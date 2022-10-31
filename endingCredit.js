@@ -29,6 +29,10 @@ const soundTrack = new Audio("theme.mp3");
 setTimeout(() => {
   soundTrack.play();
 }, 1000);
+const body = document.getElementsByTagName("body")[0];
+body.addEventListener("click", () => {
+  soundTrack.play();
+});
 
 //콘텐츠 읽어주는 기능
 window.speechSynthesis.cancel();
@@ -46,6 +50,9 @@ function textToSpeech() {
 }
 
 const mouth = document.getElementsByClassName("mouth")[0];
+setTimeout(() => {
+  mouth.style.opacity = 1;
+}, 16000);
 mouth.addEventListener("click", () => {
   textToSpeech();
 });
