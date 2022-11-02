@@ -1,3 +1,4 @@
+//수업내용 O
 let stars = 100;
 
 for (let i = 0; i <= stars; i++) {
@@ -24,42 +25,46 @@ function getStarPosition() {
   return { x: randomX, y: randowY };
 }
 
-//배경음악 재생 기능
-const soundTrack = new Audio("theme.mp3");
-
-soundTrack.play();
-const body = document.getElementsByTagName("body")[0];
-body.addEventListener("click", () => {
-  soundTrack.play();
-});
-
-//콘텐츠 읽어주는 기능
-window.speechSynthesis.cancel();
-
-let isSpeaking = false;
-function textToSpeech() {
-  isSpeaking = !isSpeaking;
-  const text = document.getElementsByClassName("thanks")[0].innerText;
-  const speechMsg = new SpeechSynthesisUtterance(text);
-  speechMsg.rate = 1.3;
-  if (isSpeaking) {
-    window.speechSynthesis.speak(speechMsg);
-  } else {
-    window.speechSynthesis.cancel();
-  }
-}
-
-const mouth = document.getElementsByClassName("mouth")[0];
-setTimeout(() => {
-  mouth.style.opacity = 1;
-  textToSpeech();
-}, 22000);
-mouth.addEventListener("click", () => {
-  textToSpeech();
-  mouth.classList.remove("blink");
-});
-
+// 수업내용 X
 const logo = document.getElementsByClassName("logo")[0];
 logo.addEventListener("click", () => {
   window.open("https://wecode.co.kr/");
 });
+
+const startButton = document.getElementsByClassName("startButton")[0];
+startButton.addEventListener("click", () => getStarted());
+
+window.speechSynthesis.cancel();
+
+function getStarted() {
+  startButton.style.opacity = "0";
+
+  const soundTrack = new Audio("theme.mp3");
+  soundTrack.play();
+
+  const intro = document.getElementsByClassName("intro")[0];
+  intro.style.animation = "intro 2s ease-out 1s";
+
+  const main = document.getElementsByClassName("main")[0];
+  main.style.animation = "main 4s ease-out 5s";
+
+  //TODO: 모바일 버전 맞춰서 다시 계산
+  const thanks = document.getElementsByClassName("thanks")[0];
+  const playTime = thanks.clientHeight * 0.021459;
+  // console.log(thanks.clientHeight);
+  // console.log(playTime);
+  // console.log((playTime / 100) * 1.1);
+  const text = document.getElementsByClassName("text")[0];
+  text.style.animation = `scroll ${playTime}s linear 12s`;
+
+  function textToSpeech() {
+    const text = document.getElementsByClassName("thanks")[0].innerText;
+    const speechMsg = new SpeechSynthesisUtterance(text);
+    speechMsg.rate = 1.1;
+    window.speechSynthesis.speak(speechMsg);
+  }
+
+  setTimeout(() => {
+    textToSpeech();
+  }, 14500);
+}
