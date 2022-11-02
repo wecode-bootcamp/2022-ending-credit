@@ -26,9 +26,8 @@ function getStarPosition() {
 
 //배경음악 재생 기능
 const soundTrack = new Audio("theme.mp3");
-setTimeout(() => {
-  soundTrack.play();
-}, 1000);
+
+soundTrack.play();
 const body = document.getElementsByTagName("body")[0];
 body.addEventListener("click", () => {
   soundTrack.play();
@@ -42,6 +41,7 @@ function textToSpeech() {
   isSpeaking = !isSpeaking;
   const text = document.getElementsByClassName("thanks")[0].innerText;
   const speechMsg = new SpeechSynthesisUtterance(text);
+  speechMsg.rate = 1.3;
   if (isSpeaking) {
     window.speechSynthesis.speak(speechMsg);
   } else {
@@ -52,9 +52,11 @@ function textToSpeech() {
 const mouth = document.getElementsByClassName("mouth")[0];
 setTimeout(() => {
   mouth.style.opacity = 1;
-}, 16000);
+  textToSpeech();
+}, 22000);
 mouth.addEventListener("click", () => {
   textToSpeech();
+  mouth.classList.remove("blink");
 });
 
 const logo = document.getElementsByClassName("logo")[0];
