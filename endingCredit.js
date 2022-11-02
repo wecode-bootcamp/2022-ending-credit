@@ -37,7 +37,7 @@ startButton.addEventListener("click", () => getStarted());
 window.speechSynthesis.cancel();
 
 function getStarted() {
-  startButton.style.opacity = "0";
+  startButton.remove();
 
   const soundTrack = new Audio("theme.mp3");
   soundTrack.play();
