@@ -50,9 +50,16 @@ function getStarted() {
 
   //TODO: 모바일 버전 맞춰서 다시 계산
   const thanks = document.getElementsByClassName("thanks")[0];
-  const playTime = thanks.clientHeight * 0.021459;
-  // console.log(thanks.clientHeight);
-  // console.log(playTime);
+  let playTime = 0
+  if (thanks.clientWidth < 517 ) {
+    playTime = thanks.clientHeight * thanks.clientWidth / 28000 / 80 * 168 
+  } else {
+    playTime = thanks.clientHeight * thanks.clientWidth / 28000;
+  }
+  console.log(thanks.clientHeight);
+  console.log(thanks.clientWidth)
+  console.log(playTime);
+  console.log('velocity: ', thanks.clientHeight * thanks.clientWidth / playTime)
   // console.log((playTime / 100) * 1.1);
   const text = document.getElementsByClassName("text")[0];
   text.style.animation = `scroll ${playTime}s linear 12s`;
