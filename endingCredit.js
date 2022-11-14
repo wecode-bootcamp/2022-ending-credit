@@ -26,12 +26,12 @@ function getStarPosition() {
 }
 
 // 수업내용 X
-const logo = document.getElementsByClassName("logo")[0];
+const logo = document.getElementById("logo");
 logo.addEventListener("click", () => {
   window.open("https://wecode.co.kr/");
 });
 
-const startButton = document.getElementsByClassName("startButton")[0];
+const startButton = document.getElementById("startButton");
 startButton.addEventListener("click", () => getStarted());
 
 window.speechSynthesis.cancel();
@@ -42,30 +42,26 @@ function getStarted() {
   const soundTrack = new Audio("theme.mp3");
   soundTrack.play();
 
-  const intro = document.getElementsByClassName("intro")[0];
+  const intro = document.getElementById("intro");
   intro.style.animation = "intro 2s ease-out 1s";
 
-  const main = document.getElementsByClassName("main")[0];
+  const main = document.getElementById("main");
   main.style.animation = "main 4s ease-out 5s";
 
   //TODO: 모바일 버전 맞춰서 다시 계산
-  const thanks = document.getElementsByClassName("thanks")[0];
-  let playTime = 0
-  if (thanks.clientWidth < 517 ) {
-    playTime = thanks.clientHeight * thanks.clientWidth / 28000 / 80 * 168 
+  const thanks = document.getElementById("thanks");
+  let playTime = 0;
+  if (thanks.clientWidth < 517) {
+    playTime = ((thanks.clientHeight * thanks.clientWidth) / 28000 / 80) * 168;
   } else {
-    playTime = thanks.clientHeight * thanks.clientWidth / 28000;
+    playTime = (thanks.clientHeight * thanks.clientWidth) / 28000;
   }
-  console.log(thanks.clientHeight);
-  console.log(thanks.clientWidth)
-  console.log(playTime);
-  console.log('velocity: ', thanks.clientHeight * thanks.clientWidth / playTime)
-  // console.log((playTime / 100) * 1.1);
-  const text = document.getElementsByClassName("text")[0];
+
+  const text = document.getElementById("text");
   text.style.animation = `scroll ${playTime}s linear 12s`;
 
   function textToSpeech() {
-    const text = document.getElementsByClassName("thanks")[0].innerText;
+    const text = document.getElementById("thanks").innerText;
     const speechMsg = new SpeechSynthesisUtterance(text);
     speechMsg.rate = 1.1;
     window.speechSynthesis.speak(speechMsg);
